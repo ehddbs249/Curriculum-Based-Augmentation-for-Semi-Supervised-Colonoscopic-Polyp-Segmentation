@@ -1,0 +1,29 @@
+# Shared settings for train_post_2d_aut_Dice.py / train_post_2d_aut_Conflict.py.
+# Pass a unique --exp for each run. Explicit CLI options override these values.
+root_path: ./data/Kvasir
+res_path: ./results
+model: unet
+num_classes: 2
+seed: 2023
+max_iterations: 30000
+base_lr: 0.01
+batch_size: 24
+labeled_bs: 12
+labeled_num: 44
+patch_size: [256, 256]
+test_interval_ep: 2
+aug_patience: 5
+# aug_min_delta is criterion-specific: Dice 0.01, Conflict 0.005.
+color_threshold: 0.6
+min_size_ratio: 0.05
+max_size_ratio: 0.45
+ema_decay: 0.99
+consistency: 2.0
+consistency_rampup: 50
+conf_threshold: 0.75
+flag_ulb_loss_type: dice
+poly: true
+alt_param_updating_period_iters: 50
+alt_flag_updating_period_random: true
+alt_flag_conflict_mode: pixel_confidence
+alt_param_conflict_weight: 1.0
